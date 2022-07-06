@@ -5,7 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-Hello I am ${name}
+Hello I am ${obj.aname} , ${obj.aid}, ${obj.lang}
+
 </body>
 </html>
 

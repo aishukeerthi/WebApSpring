@@ -2,6 +2,8 @@ package com.App.demo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,14 +15,17 @@ public class HomeController {
 
     @RequestMapping("home")
 
-    public String home(HttpServletRequest req, HttpServletResponse res)
+    public ModelAndView home(Alien alien)
     {
-        HttpSession session = req.getSession();
+       // HttpSession session = req.getSession();
 
-        String name = req.getParameter("name");
-        System.out.println("in " + name);
-        session.setAttribute("name",name);
+       // String name = req.getParameter("name");
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("obj" , alien);
+        mv.setViewName("home");
+        //System.out.println("in " + name1);
+        //session.setAttribute("name",name1);
 
-        return "home";
+        return mv;
     }
 }
